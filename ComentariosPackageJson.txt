@@ -1,0 +1,23 @@
+Comentarios sobre o arquivo Package.json:
+
+
+
+"devDependencies": {
+
+Babel = transcompilador:
+
+  transforma através do processo de transcompilação todo o código
+  escrito usando ES2015 para ES5 garantindo maior compatibilidade da nossa aplicação
+  mais notadamente em browsers desatualizados de smartphones.
+
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+
+
+Webpack = modulo bundler:
+
+  Empacota os arquivos dentro da pasta src.
+
+    "webpack": "^3.6.0",
+
+}
