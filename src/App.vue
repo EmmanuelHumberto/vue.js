@@ -9,67 +9,32 @@ que divide-se em 3 tags:
 * <style></style> = estilo -->
 
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
+<!--Qnado há mais de um elemento dentro da tag template,
+  é necessario o uso da tag <div></div> ou <contener></contener>-->
+<div>
+<h1>{{ titulo }}</h1>
 
-    <!--interpolação por associação de dados - sintaxe {{dado}}
-      data binding unidirecional. Flui da fonte dados para o template
-      resultado do retono do objeto msg pela função data()-->
-    <h1>{{ msg }}</h1>
-
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-  </div>
+<!--Interpolação usando 'V-bind' ou ':' = directiva do veu.js
+para fazer um interpolação em um atributo -->
+<img v-bind:src="foto.url " :alt="foto.titulo" >
+</div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+export default{
+  data(){
+    return{
+      titulo: 'Galeriapic',
+      foto: {
+        url: 'https://www.agrosete.com.br/wp-content/uploads/2020/12/Cachorro-com-a-l%C3%ADngua-de-fora-%C3%A9-sede-1.jpg',
+        titulo: 'cachorro'
+      }
     }
   }
 }
 </script>
 
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
