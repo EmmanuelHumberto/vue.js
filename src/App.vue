@@ -13,10 +13,17 @@ que divide-se em 3 tags:
   é necessario o uso da tag <div></div> ou <contener></contener>-->
 <div>
 <h1>{{ titulo }}</h1>
+<ul>
 
-<!--Interpolação usando 'V-bind' ou ':' = directiva do veu.js
-para fazer um interpolação em um atributo -->
-<img v-bind:src="foto.url " :alt="foto.titulo" >
+  <!--Usando a função v-for
+  para iterar <li></li> lsita não ordenada com o array fotos-->
+    <li v-for= "foto of fotos">
+
+    <!--Interpolação usando 'V-bind' ou ':' = directiva do veu.js
+    para fazer um interpolação em um atributo -->
+      <img :src="foto.url " :alt="foto.titulo" >
+    </li>
+</ul>
 </div>
 </template>
 
@@ -25,10 +32,16 @@ export default{
   data(){
     return{
       titulo: 'Galeriapic',
-      foto: {
+      fotos: [
+        {
         url: 'https://www.agrosete.com.br/wp-content/uploads/2020/12/Cachorro-com-a-l%C3%ADngua-de-fora-%C3%A9-sede-1.jpg',
         titulo: 'cachorro'
-      }
+        },
+        {
+        url: 'https://www.agrosete.com.br/wp-content/uploads/2020/12/Cachorro-com-a-l%C3%ADngua-de-fora-%C3%A9-sede-1.jpg',
+        titulo: 'cachorro1'
+        }
+      ]
     }
   }
 }
