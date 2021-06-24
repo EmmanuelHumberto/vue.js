@@ -1,20 +1,31 @@
 <template>
   <div class="temp">
-    <h1 class="titulo">{{ titulo }}</h1>
+    <h1 class="centralizado">{{ titulo }}</h1>
     <ul class="lista-fotos">
-      <!--key: atributo especial é usado principalmente como uma dica 
-        para o algoritmo DOM virtual do Vue para identificar VNodes 
-        ao comparar a nova lista de nós com a lista antiga-->
+      <li class="lista-fotos-item" v-for="foto of fotos" :key="foto.id">
 
-      <li class="lista-fotos-item" v-for="foto of fotos" v-bind:key="foto.id">
-        <img :src="foto.url" :alt="foto.titulo">
+       <meu-painel :titulo="foto.titulo">
+          <img class="imagem-responsiva" :src="foto.url" :alt="foto.titulo">
+       </meu-painel>
+
       </li>
     </ul>
   </div>
-</template>
+</template> 
 
 <script>
+
+
+import Painel from './components/shared/painel/Painel.vue';
+
 export default {
+
+  components: {
+
+    'meu-painel': Painel
+
+  },
+
   data() {
     return {
       titulo: 'AppVallum',
@@ -36,7 +47,7 @@ export default {
   width: 96%;
   margin: 0 auto;
 }
-.titulo
+.centralizado
 {
   text-align: center;
 }
@@ -49,4 +60,11 @@ export default {
 {
   display: inline-block
 }
+
+.imagem-responsiva{
+
+  width: 100%;
+}
+
+
 </style>
